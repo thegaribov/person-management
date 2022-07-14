@@ -27,8 +27,6 @@ namespace PersonManagement.Database.Models
             Fin = fin;
             Email = email;
 
-
-
         }
     }
 }
