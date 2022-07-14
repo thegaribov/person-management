@@ -62,5 +62,30 @@ namespace PersonManagement.Database.Repository
                 }
             }
         }
+        public bool IsFinUnique(string fin)
+        {
+            for (int i = 0; i < _employees.Count; i++)
+            {
+                if(fin == _employees[i].Fin)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+        public bool IsEmailUnique(string mail)
+       {
+           for (int i = 0; i < _employees.Count; i++)
+           {
+
+                if (mail == _employees[i].Email)
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
     }
 }
