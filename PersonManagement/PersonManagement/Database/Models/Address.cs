@@ -11,12 +11,12 @@ namespace PersonManagement.Database.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        private static int IdCounter { get; set; }
+        private static int IdCounter = 1;
 
 
-        public Address(int id, string name)
+        public Address(string name)
         {
-            Id = id;
+            Id = IdCounter++;
             Name = name;
         }
     }
