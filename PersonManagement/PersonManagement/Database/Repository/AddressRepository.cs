@@ -38,5 +38,16 @@ namespace PersonManagement.Database.Repository
             return addresses;
         }
 
+        public void Update(int id, string name)
+        {
+            for (int i = 0; i < addresses.Count; i++)
+            {
+                if (id == addresses[i].Id)
+                {
+                    addresses[i].Name = name;
+                }
+            }
+        }
+
     }
 }
