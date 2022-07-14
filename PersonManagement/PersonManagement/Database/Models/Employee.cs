@@ -28,5 +28,7 @@ namespace PersonManagement.Database.Models
             Email = email;
 
         }
+
+        
     }
 }

@@ -12,7 +12,7 @@ namespace PersonManagement.Database.Repository
         private static List<Address> addresses = new List<Address>();
 
 
-        public List<Address> Add(string name)
+        public static List<Address> Add(string name)
         {
             Address address = new Address(name);
 
@@ -22,7 +22,7 @@ namespace PersonManagement.Database.Repository
 
         }
 
-        public void Remove(int id)
+        public static void Remove(int id)
         {
             for (int i = 0; i < addresses.Count; i++)
             {
@@ -33,12 +33,12 @@ namespace PersonManagement.Database.Repository
             }
         }
 
-        public List<Address> GetAll()
+        public static List<Address> GetAll()
         {
             return addresses;
         }
 
-        public void Update(int id, string name)
+        public static void Update(int id, string name)
         {
             for (int i = 0; i < addresses.Count; i++)
             {

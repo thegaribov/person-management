@@ -62,5 +62,12 @@ namespace PersonManagement.Database.Repository
                 }
             }
         }
-    }
+
+        public List<Models.Employee> GetAll()
+        {
+            return _employees;
+        }
+
+      
+     }
 }
