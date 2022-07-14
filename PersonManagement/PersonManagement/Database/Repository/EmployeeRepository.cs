@@ -56,7 +56,7 @@ namespace PersonManagement.Database.Repository
                     _employees[i].FatherName = fathername;
                     _employees[i].Fin = fin;
                     _employees[i].Email = mail;
-
+                    break;
 
 
                 }
