@@ -22,10 +22,30 @@ namespace PersonManagement.Database.Repository
                 if (_employees[i].Id == id)
                 {
                     _employees.RemoveAt(i);
+                    break;
                 }
             }
 
+        }
+        public void ShowAll()
+        {
+            for (int i = 0; i < _employees.Count; i++)
+            {
+                
+                Console.WriteLine($"Name : {_employees[i].Name}\nLastname : {_employees[i].LastName}\nFathername : {_employees[i].FatherName}\n FIN : {_employees[i].Fin}\n Email : {_employees[i].Email}");
+            }
 
+        }
+        public void Show(int id)
+        {
+            for (int i = 0; i < _employees.Count; i++)
+            {
+                if (_employees[i].Id == id)
+                {
+                    Console.WriteLine($"Name : {_employees[i].Name}\nLastname : {_employees[i].LastName}\nFathername : {_employees[i].FatherName}\n FIN : {_employees[i].Fin}\n Email : {_employees[i].Email}");
+
+                }
+            }
         }
     }
 }
