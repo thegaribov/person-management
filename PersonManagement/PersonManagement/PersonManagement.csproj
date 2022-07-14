@@ -6,9 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Database\" />
     <Folder Include="ApplicationLogic\" />
-    <Folder Include="Database\Repository\" />
   </ItemGroup>
 
 </Project>
