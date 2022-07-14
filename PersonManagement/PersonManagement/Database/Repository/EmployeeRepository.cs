@@ -56,11 +56,36 @@ namespace PersonManagement.Database.Repository
                     _employees[i].FatherName = fathername;
                     _employees[i].Fin = fin;
                     _employees[i].Email = mail;
-
+                    break;
 
 
                 }
             }
+        }
+        public bool IsFinUnique(string fin)
+        {
+            for (int i = 0; i < _employees.Count; i++)
+            {
+                if(fin == _employees[i].Fin)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+        public bool IsEmailUnique(string mail)
+       {
+           for (int i = 0; i < _employees.Count; i++)
+           {
+
+                if (mail == _employees[i].Email)
+                {
+                    return false;
+                }
+            }
+            return true;
+
         }
 
         public List<Models.Employee> GetAll()
