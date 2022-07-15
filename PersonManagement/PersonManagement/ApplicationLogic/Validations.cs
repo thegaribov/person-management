@@ -8,7 +8,7 @@ namespace PersonManagement.ApplicationLogic
 {
     internal class Validations
     {
-        public bool IsNameTrue(string name)
+        public static bool IsNameTrue(string name)
         {
             if(name != null && name.Length > 2 && name.Length < 30)
             {
@@ -16,13 +16,15 @@ namespace PersonManagement.ApplicationLogic
                 {
                     if (!char.IsLetter(name[i]))
                     {
+                        Console.WriteLine("Check Name");
                         return false;
                     }
                 }
             }
+            
             return true;
         }
-        public bool IsLastNameTrue(string lastname)
+        public static bool IsLastNameTrue(string lastname)
         {
             if (lastname != null && lastname.Length > 2 && lastname.Length < 30)
             {
@@ -30,13 +32,14 @@ namespace PersonManagement.ApplicationLogic
                 {
                     if (!char.IsLetter(lastname[i]))
                     {
+                        Console.WriteLine("Check LastName");
                         return false;
                     }
                 }
             }
             return true;
         }
-        public bool IsFatherNameTrue(string fathername)
+        public static bool IsFatherNameTrue(string fathername)
         {
             if (fathername != null && fathername.Length > 2 && fathername.Length < 30)
             {
@@ -44,13 +47,15 @@ namespace PersonManagement.ApplicationLogic
                 {
                     if (!char.IsLetter(fathername[i]))
                     {
+                        Console.WriteLine("Check FatherName");
                         return false;
                     }
                 }
             }
+
             return true;
         }
-        public bool IsFinTrue(string fin)
+        public static bool IsFinTrue(string fin)
         {
             if(fin.Length == 7)
             {
@@ -58,13 +63,14 @@ namespace PersonManagement.ApplicationLogic
                 {
                     if (!(char.IsLetter(fin[i]) || char.IsDigit(fin[i])))
                     {
+                        Console.WriteLine("Check FIN");
                         return false;
                     }
                 }
             }
             return true;
         }
-        public bool IsEmailTrue(string email)
+        public static bool IsEmailTrue(string email)
         {
             
             if (email != null)
@@ -78,6 +84,7 @@ namespace PersonManagement.ApplicationLogic
                     }
                 }
             }
+            Console.WriteLine("Check Email");
             return false;
         }
 
