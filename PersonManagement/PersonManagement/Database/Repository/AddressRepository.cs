@@ -24,7 +24,12 @@ namespace PersonManagement.Database.Repository
                 if (id == adresList[i].Id)
                 {
                     adresList.RemoveAt(i);
+                    break;
                 }
+            }
+            for (int i = id + 1; i < adresList.Count; i++)
+            {
+                adresList[i].Id = i - 1;
             }
         }
 
@@ -47,6 +52,17 @@ namespace PersonManagement.Database.Repository
                 }
             }
 
+        }
+        public static int GetId(string name)
+        {
+            for (int i = 0; i < adresList.Count; i++)
+            {
+                if (name == adresList[i].Name)
+                {
+                    return adresList[i].Id;
+                }
+            }
+            return -1;
         }
 
 

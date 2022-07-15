@@ -9,13 +9,13 @@ namespace PersonManagement.Database.Repository
     internal class EmployeeRepository
     {
         public static List<Models.Employee> _employees = new List<Models.Employee>();
-        public void Add(string name, string lastname, string fathername, string fin, string mail)
+        public static void Add(string name, string lastname, string fathername, string fin, string mail)
         {
             Models.Employee employe = new Models.Employee(name, lastname, fathername, fin, mail);
             _employees.Add(employe);
 
         }
-        public void Delete(int id)
+        public static void Remove(int id)
         {
             for (int i = 0; i < _employees.Count; i++)
             {
@@ -25,14 +25,14 @@ namespace PersonManagement.Database.Repository
                     break;
                 }
             }
+            for (int i = id + 1; i < _employees.Count; i++)
+            {
+                _employees[i].Id = i - 1;
+            }
 
         }
-        public List<Models.Employee> ShowAll()
-        {
-            return _employees;
-
-        }
-        public Models.Employee GetEmployee(int id)
+       
+        public static Models.Employee GetEmployee(int id)
         {
             for (int i = 0; i < _employees.Count; i++)
             {
@@ -44,7 +44,7 @@ namespace PersonManagement.Database.Repository
             }
             return null;
         }
-        public void Update(int id, string name, string lastname, string fathername, string fin, string mail)
+        public static void Update(int id, string name, string lastname, string fathername, string fin, string mail)
         {
 
             for (int i = 0; i < _employees.Count; i++)
@@ -62,7 +62,7 @@ namespace PersonManagement.Database.Repository
                 }
             }
         }
-        public bool IsFinUnique(string fin)
+        public static bool IsFinUnique(string fin)
         {
             for (int i = 0; i < _employees.Count; i++)
             {
@@ -74,7 +74,7 @@ namespace PersonManagement.Database.Repository
             }
             return true;
         }
-        public bool IsEmailUnique(string mail)
+        public static bool IsEmailUnique(string mail)
        {
            for (int i = 0; i < _employees.Count; i++)
            {
@@ -88,11 +88,12 @@ namespace PersonManagement.Database.Repository
 
         }
 
-        public List<Models.Employee> GetAll()
+        public static List<Models.Employee> GetAll()
         {
             return _employees;
         }
+        
 
-      
-     }
+
+    }
 }

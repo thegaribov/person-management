@@ -66,6 +66,11 @@ namespace PersonManagement.UI
                         AddressRepository.Update(id, adressname);
 
                     }
+                    else if (commandAddress == "Get Id")
+                    {
+                        Console.WriteLine(AddressRepository.GetId(Console.ReadLine()));
+
+                    }
                     else
                     {
                         Console.WriteLine("command not found");
