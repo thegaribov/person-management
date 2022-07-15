@@ -83,8 +83,8 @@ namespace PersonManagement.Database.Repository
                 {
                     return false;
                 }
-            }
-            return true;
+           }
+           return true;
 
         }
 

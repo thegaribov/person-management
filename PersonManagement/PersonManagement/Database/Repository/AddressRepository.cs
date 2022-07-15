@@ -9,45 +9,54 @@ namespace PersonManagement.Database.Repository
 {
     class AddressRepository
     {
-        private static List<Address> addresses = new List<Address>();
 
+        private static List<Address> adresList = new List<Address>();
 
-        public static List<Address> Add(string name)
+        public static List<Address> GetAll()
         {
-            Address address = new Address(name);
-
-            addresses.Add(address);
-
-            return addresses;
-
+            return adresList;
         }
 
         public static void Remove(int id)
         {
-            for (int i = 0; i < addresses.Count; i++)
+            for (int i = 0; i < adresList.Count; i++)
             {
-                if (id == addresses[i].Id)
+                if (id == adresList[i].Id)
                 {
-                    addresses.RemoveAt(i);
+                    adresList.RemoveAt(i);
                 }
             }
         }
 
-        public static List<Address> GetAll()
+        public static List<Address> Add(string name)
         {
-            return addresses;
+            Address adress = new Address(name);
+
+            adresList.Add(adress);
+            return adresList;
         }
 
         public static void Update(int id, string name)
         {
-            for (int i = 0; i < addresses.Count; i++)
+            Address adress = new Address(name);
+            for (int i = 0; i < adresList.Count; i++)
             {
-                if (id == addresses[i].Id)
+                if (id == adresList[i].Id)
                 {
-                    addresses[i].Name = name;
+                    adresList[i].Name = name;
                 }
             }
+
         }
+
+
+
+
+
+
+
+
+
 
     }
 }
