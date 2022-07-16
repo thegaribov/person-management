@@ -14,17 +14,19 @@ namespace PersonManagement.UI
             Console.WriteLine("Choose commands:");
             Console.WriteLine("Employee");
             Console.WriteLine("Address");
+
+            string command = Console.ReadLine();
+
             while (true)
             {
-                string command = Console.ReadLine();
-
-
                 if (command == "Employee")
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Add");
                     Console.WriteLine("Update");
                     Console.WriteLine("Get all");
                     Console.WriteLine("Remove");
+                    Console.WriteLine();
                     string commandEmployee = Console.ReadLine();
 
                     if (commandEmployee == "Add")
@@ -53,7 +55,7 @@ namespace PersonManagement.UI
                         List<Employee> employees = EmployeeRepository.GetAll();
                         foreach (Employee employee in employees)
                         {
-                            Console.WriteLine(employee.Name + employee.LastName);                           
+                            Console.WriteLine(employee.Name + " " + employee.LastName);                           
                         }
                     }
                     else if (commandEmployee == "Remove")
@@ -145,13 +147,13 @@ namespace PersonManagement.UI
                     }
 
 
-
                 }
                 else
                 {
                     Console.WriteLine("Command not found");
                 }
 
+                Console.WriteLine();
             }
 
 
