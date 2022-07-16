@@ -10,7 +10,7 @@ namespace PersonManagement.ApplicationLogic
     {
         public static bool IsNameCorrect(string name)
         {
-            if (Validation.IsNameCorrect(name, 3, 30))
+            if (Validation.IsTextCorrect(name, 3, 30))
             {
                 return true;
             }

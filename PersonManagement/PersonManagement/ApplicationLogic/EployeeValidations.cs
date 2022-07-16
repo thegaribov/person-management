@@ -12,45 +12,29 @@ namespace PersonManagement.ApplicationLogic
     {
         public static bool IsNameCorrect(string name)
         {
-            if (Validation.IsNameCorrect(name, 2, 20))
+            if (Validation.IsTextCorrect(name, 2, 20))
             {
                 return true;
             }
 
             return false;
         }
-        public static bool IsLastNameCorrect(string lastname)
+        public static bool IsLastNameCorrect(string lastName)
         {
-            if (lastname != null && lastname.Length > 2 && lastname.Length < 30)
+            if (Validation.IsTextCorrect(lastName,3,30))
             {
-                for (int i = 0; i < lastname.Length; i++)
-                {
-                    if (!char.IsLetter(lastname[i]))
-                    {
-                        Console.WriteLine("Check LastName");
-                        return false;
-                    }
-                }
                 return true;
             }
-            Console.WriteLine("Check LastName");
+
             return false;
         }
-        public static bool IsFatherNameCorrect(string fathername)
+        public static bool IsFatherNameCorrect(string fatherName)
         {
-            if (fathername != null && fathername.Length > 2 && fathername.Length < 30)
+            if (Validation.IsTextCorrect(fatherName, 2,20))
             {
-                for (int i = 0; i < fathername.Length; i++)
-                {
-                    if (!char.IsLetter(fathername[i]))
-                    {
-                        Console.WriteLine("Check FatherName");
-                        return false;
-                    }
-                }
                 return true;
             }
-            Console.WriteLine("Check FatherName");
+
             return false;
         }
         public static bool IsFinCorrect(string fin)
@@ -61,13 +45,12 @@ namespace PersonManagement.ApplicationLogic
                 {
                     if (!(char.IsLetter(fin[i]) || char.IsDigit(fin[i])))
                     {
-                        Console.WriteLine("Check FIN");
+                       
                         return false;
                     }
                 }
                 return true;
             }
-            Console.WriteLine("Check FIN");
             return false;
         }
         public static bool IsEmailCorrect(string email)
@@ -79,7 +62,6 @@ namespace PersonManagement.ApplicationLogic
                 if (re.IsMatch(email))
                     return true;
             }
-            Console.WriteLine("Check Email");
             return false;
 
         }

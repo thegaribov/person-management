@@ -8,7 +8,7 @@ namespace PersonManagement.ApplicationLogic
 {
     class Validation
     {
-        public static bool IsNameCorrect(string name, int startLength, int endLength)
+        public static bool IsTextCorrect(string name, int startLength, int endLength)
         {
             if (name != null & name.Length > startLength & name.Length < endLength)
             {
@@ -16,13 +16,11 @@ namespace PersonManagement.ApplicationLogic
                 {
                     if (!char.IsLetter(name[i]))
                     {
-                        Console.WriteLine("Check Name");
                         return false;
                     }
                 }
                 return true;
             }
-            Console.WriteLine("Check Name");
             return false;
         }
     }

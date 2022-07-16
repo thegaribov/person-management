@@ -12,14 +12,14 @@ namespace PersonManagement.UI
         static void Main(string[] args)
         {
             Console.WriteLine("Choose commands:");
-            Console.WriteLine("Employee");
-            Console.WriteLine("Address");
-
+            Console.WriteLine("/employee");
+            Console.WriteLine("/address");
+            Console.WriteLine();
             string command = Console.ReadLine();
 
             while (true)
             {
-                if (command == "Employee")
+                if (command == "/employee")
                 {
                     Console.WriteLine();
                     Console.WriteLine("Add");
@@ -41,13 +41,17 @@ namespace PersonManagement.UI
                         string fin = Console.ReadLine();
                         Console.WriteLine("Add Employee Email:");
                         string mail = Console.ReadLine();
-                        
-                        if(EployeeValidations.IsNameCorrect(name) & EployeeValidations.IsLastNameCorrect(lastname) & EployeeValidations.IsFatherNameCorrect(fathername) & EployeeValidations.IsFinCorrect(fin) & EployeeValidations.IsEmailCorrect(mail))
+
+                        if (EployeeValidations.IsNameCorrect(name) & EployeeValidations.IsLastNameCorrect(lastname) & EployeeValidations.IsFatherNameCorrect(fathername) & EployeeValidations.IsFinCorrect(fin) & EployeeValidations.IsEmailCorrect(mail))
                         {
                             EmployeeRepository.Add(name, lastname, fathername, fin, mail);
                             Console.WriteLine($"{name} {lastname} added");
                         }
-                        
+                        else
+                        {
+                            throw new Exception();
+                        }
+
                     }
 
                     else if (commandEmployee == "Get all")
@@ -55,7 +59,7 @@ namespace PersonManagement.UI
                         List<Employee> employees = EmployeeRepository.GetAll();
                         foreach (Employee employee in employees)
                         {
-                            Console.WriteLine(employee.Name + " " + employee.LastName);                           
+                            Console.WriteLine(employee.Name + " " + employee.LastName);
                         }
                     }
                     else if (commandEmployee == "Remove")
@@ -82,16 +86,16 @@ namespace PersonManagement.UI
                         Console.WriteLine("Write Employee Email:");
                         string mail = Console.ReadLine();
 
-                        EmployeeRepository.Update(id,name,lastname,fathername,fin,mail);
+                        EmployeeRepository.Update(id, name, lastname, fathername, fin, mail);
 
-                    }                  
+                    }
                     else
                     {
                         Console.WriteLine("command not found");
                     }
 
                 }
-                else if (command == "Address")
+                else if (command == "/address")
                 {
 
 
@@ -99,18 +103,23 @@ namespace PersonManagement.UI
                     Console.WriteLine("Update");
                     Console.WriteLine("Get all");
                     Console.WriteLine("Remove");
+                    //Console.WriteLine("Get Id");
                     string commandAddress = Console.ReadLine();
 
                     if (commandAddress == "Add")
                     {
                         Console.WriteLine("Add address name:");
                         string name = Console.ReadLine();
-                        if (AddressValidations.IsNameCorrect(name)) 
-                        { 
-                        AddressRepository.Add(name);
-                        Console.WriteLine($"{name} added");
+                        if (AddressValidations.IsNameCorrect(name))
+                        {
+                            AddressRepository.Add(name);
+                            Console.WriteLine($"{name} added");
                         }
-                    
+                        else
+                        {
+                            throw new Exception();
+                        }
+
                     }
 
                     else if (commandAddress == "Get all")
@@ -157,7 +166,6 @@ namespace PersonManagement.UI
                     Console.WriteLine("Command not found");
                 }
 
-                Console.WriteLine();
             }
 
 
