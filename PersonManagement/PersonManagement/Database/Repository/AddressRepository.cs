@@ -27,7 +27,7 @@ namespace PersonManagement.Database.Repository
                     break;
                 }
             }
-            for (int i = id -1 ; i < adresList.Count; i++)
+            for (int i = id -1  ; i < adresList.Count; i++)
             {
                 adresList[i].Id -= 1;
             }

@@ -25,9 +25,9 @@ namespace PersonManagement.Database.Repository
                     break;
                 }
             }
-            for (int i = id + 1; i < _employees.Count; i++)
+            for (int i = id -1 ; i < _employees.Count; i++)
             {
-                _employees[i].Id = i - 1;
+                _employees[i].Id -= 1;
             }
 
         }
