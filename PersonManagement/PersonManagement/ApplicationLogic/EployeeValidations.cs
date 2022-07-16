@@ -6,24 +6,23 @@ using System.Threading.Tasks;
 
 namespace PersonManagement.ApplicationLogic
 {
-    internal class Validations
+    internal class EployeeValidations
     {
         public static bool IsNameTrue(string name)
         {
-            if(name != null && name.Length > 2 && name.Length < 30)
+            if(Validation.IsNameCorrect(name,2,20))
             {
-                for(int i = 0; i < name.Length; i++)
-                {
-                    if (!char.IsLetter(name[i]))
-                    {
-                        Console.WriteLine("Check Name");
-                        return false;
-                    }
-                }
+                return true;
             }
             
-            return true;
+            return false;
         }
+
+        private static bool IsNameCorrect()
+        {
+            throw new NotImplementedException();
+        }
+
         public static bool IsLastNameTrue(string lastname)
         {
             if (lastname != null && lastname.Length > 2 && lastname.Length < 30)

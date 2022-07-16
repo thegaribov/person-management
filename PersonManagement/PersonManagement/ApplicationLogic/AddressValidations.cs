@@ -8,5 +8,14 @@ namespace PersonManagement.ApplicationLogic
 {
     class AddressValidations
     {
+        public static bool IsNameTrue(string name)
+        {
+            if (Validation.IsNameCorrect(name, 3, 30))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

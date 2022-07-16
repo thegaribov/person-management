@@ -42,7 +42,7 @@ namespace PersonManagement.UI
                         Console.WriteLine("Add Employee Email:");
                         string mail = Console.ReadLine();
                         
-                        if(Validations.IsNameTrue(name) & Validations.IsLastNameTrue(lastname) & Validations.IsFatherNameTrue(fathername) & Validations.IsFinTrue(fin) & Validations.IsEmailTrue(mail))
+                        if(EployeeValidations.IsNameTrue(name) & EployeeValidations.IsLastNameTrue(lastname) & EployeeValidations.IsFatherNameTrue(fathername) & EployeeValidations.IsFinTrue(fin) & EployeeValidations.IsEmailTrue(mail))
                         {
                             EmployeeRepository.Add(name, lastname, fathername, fin, mail);
                             Console.WriteLine($"{name} {lastname} added");
