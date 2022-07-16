@@ -8,7 +8,7 @@ namespace PersonManagement.ApplicationLogic
 {
     class AddressValidations
     {
-        public static bool IsNameTrue(string name)
+        public static bool IsNameCorrect(string name)
         {
             if (Validation.IsNameCorrect(name, 3, 30))
             {

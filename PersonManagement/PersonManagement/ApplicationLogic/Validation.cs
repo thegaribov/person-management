@@ -20,9 +20,10 @@ namespace PersonManagement.ApplicationLogic
                         return false;
                     }
                 }
+                return true;
             }
-
-            return true;
+            Console.WriteLine("Check Name");
+            return false;
         }
     }
 }

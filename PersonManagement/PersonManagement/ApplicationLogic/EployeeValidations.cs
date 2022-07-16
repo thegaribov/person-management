@@ -3,27 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+
 
 namespace PersonManagement.ApplicationLogic
 {
     internal class EployeeValidations
     {
-        public static bool IsNameTrue(string name)
+        public static bool IsNameCorrect(string name)
         {
-            if(Validation.IsNameCorrect(name,2,20))
+            if (Validation.IsNameCorrect(name, 2, 20))
             {
                 return true;
             }
-            
+
             return false;
         }
-
-        private static bool IsNameCorrect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static bool IsLastNameTrue(string lastname)
+        public static bool IsLastNameCorrect(string lastname)
         {
             if (lastname != null && lastname.Length > 2 && lastname.Length < 30)
             {
@@ -35,10 +31,12 @@ namespace PersonManagement.ApplicationLogic
                         return false;
                     }
                 }
+                return true;
             }
-            return true;
+            Console.WriteLine("Check LastName");
+            return false;
         }
-        public static bool IsFatherNameTrue(string fathername)
+        public static bool IsFatherNameCorrect(string fathername)
         {
             if (fathername != null && fathername.Length > 2 && fathername.Length < 30)
             {
@@ -50,11 +48,12 @@ namespace PersonManagement.ApplicationLogic
                         return false;
                     }
                 }
+                return true;
             }
-
-            return true;
+            Console.WriteLine("Check FatherName");
+            return false;
         }
-        public static bool IsFinTrue(string fin)
+        public static bool IsFinCorrect(string fin)
         {
             if(fin.Length == 7)
             {
@@ -66,25 +65,23 @@ namespace PersonManagement.ApplicationLogic
                         return false;
                     }
                 }
+                return true;
             }
-            return true;
+            Console.WriteLine("Check FIN");
+            return false;
         }
-        public static bool IsEmailTrue(string email)
+        public static bool IsEmailCorrect(string email)
         {
-            
+
             if (email != null)
             {
-                for (int i = 0; i < email.Length; i++)
-                {
-                    if (email[i] == '@')
-                    {
-                        return true;
-
-                    }
-                }
+                Regex re = new Regex(@"^((\w[^\W]+)[\.\-]?){1,}\@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,4}))$");
+                if (re.IsMatch(email))
+                    return true;
             }
             Console.WriteLine("Check Email");
             return false;
+
         }
 
     }

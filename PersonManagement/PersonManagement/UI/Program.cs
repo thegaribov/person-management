@@ -42,7 +42,7 @@ namespace PersonManagement.UI
                         Console.WriteLine("Add Employee Email:");
                         string mail = Console.ReadLine();
                         
-                        if(EployeeValidations.IsNameTrue(name) & EployeeValidations.IsLastNameTrue(lastname) & EployeeValidations.IsFatherNameTrue(fathername) & EployeeValidations.IsFinTrue(fin) & EployeeValidations.IsEmailTrue(mail))
+                        if(EployeeValidations.IsNameCorrect(name) & EployeeValidations.IsLastNameCorrect(lastname) & EployeeValidations.IsFatherNameCorrect(fathername) & EployeeValidations.IsFinCorrect(fin) & EployeeValidations.IsEmailCorrect(mail))
                         {
                             EmployeeRepository.Add(name, lastname, fathername, fin, mail);
                             Console.WriteLine($"{name} {lastname} added");
@@ -105,8 +105,12 @@ namespace PersonManagement.UI
                     {
                         Console.WriteLine("Add address name:");
                         string name = Console.ReadLine();
+                        if (AddressValidations.IsNameCorrect(name)) 
+                        { 
                         AddressRepository.Add(name);
                         Console.WriteLine($"{name} added");
+                        }
+                    
                     }
 
                     else if (commandAddress == "Get all")
